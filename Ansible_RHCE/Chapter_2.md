@@ -57,4 +57,22 @@ ansible-navigator.yaml --> IaC navigator work
 
 Playbook --> What task to perform. with .yaml/yml format.
 
+ In enterprise enviroment, we will not use root. 
+Create a common user student. 
+
+
+Use SSH -- with key based auth. 
+
+ssh -cpy-id student@IP  //export the public keys to servers. 
+
+Repo's is required on the server for practical scenrio.
+-- /etc/hosts --> local DNS
+IP FQDN hostname
+
+Offline Repo --- do not have ansible navigator.
+Online --download the ansible navigator
+
+for local repo, we will install the python package using pip. Since ansible is python based, 
+on offline machine we can install the pip to install ansible. 
+
 
