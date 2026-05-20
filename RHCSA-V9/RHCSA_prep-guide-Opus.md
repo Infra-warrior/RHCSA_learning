@@ -75,4 +75,42 @@ Afternoon(4hrs)-- fstab MAstery (The Killer topic)
 	5) # Step 3 -- Add to fstab using UUID	
 	6) echo "UUID=<paste-uuid> /data/logs	xfs	defaults	0 0" >> /etc/fstab
 
+	7) # Step 4 -- Test Before reboot (this saves your exam)
+	8) systemctl daemon-relaod
+	9) mount -a
+	10) df -h | grep logs	# verify mounted
+
+	11) # Step 5 --REBOOT and verify it survives
+	12) reboot
+
+	13) # After reboot:
+	14) df -h | grep logs		#Must still be there
+
+- Repeat this procedure 5 times with different filesystems and mount options(noatime, nodev,nosuid)
+
+Evening(2hrs) -- The "Why your VM went to Emergency" Autopsy:
+- Intentionally break fstab(wrong UUID), reboot, recover from emergency mode
+- Practice: mount -o remount,rw /, fix fstab, exit emergency
+- This is the exact skill that will save you on exam day.
+
+
+Day 3 (Tuesday) -- LIGHT 
+- Flashcard drill: 20 random commands from Day 1-2
+- Re-do ACL lab once
+- Re-do fstab procedure once
+
+Day 4 (Wed) -- LIGHT
+- man pages navigation drill: find specific topics in man parted, man fstab, man chage
+- Practice: man -k <keyword>, man 5 fstab (section 5 = config files)
+
+Day 5 (Thrus) -- LIGHT
+- Command flashcards ( use Anki --Free): blkid, lsblk, findmnt, mount, umount
+
+Day 6 (Fri) -- Foused Mini-Lab
+- One full fstab task end-to-end wihout note
+- One ACL task end-to-end without notes.
+
+Day 7 (Satu) -- Catch -Up + Sunday Prep
+- Review notes, ensure sunday VMs are reset to baseline
+- Anki flashcards review
 
