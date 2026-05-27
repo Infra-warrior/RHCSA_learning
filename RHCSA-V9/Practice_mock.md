@@ -1,6 +1,11 @@
 Task 1: Network Configuration
 Configure the network interface enp1s0 (or your primary interface) with the static IP address 192.168.122.50/24. Set the gateway to 192.168.122.1 and the DNS server to 8.8.8.8. Ensure the connection starts automatically on boot.
 
+1) nmcli -show connection
+2) nmcli connection modify 
+
+
+
 Task 2: User and Group Administration
 Create a group named sysadmins. Create a user named alice with sysadmins as her primary group. Create a user named bob who belongs to the sysadmins group as a supplementary group. Ensure bob has a non-interactive shell.
 
