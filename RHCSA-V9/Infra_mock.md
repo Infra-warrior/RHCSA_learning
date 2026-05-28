@@ -46,11 +46,18 @@ Unprivileged system users (others) have absolute zero access.
 
 Any new subdirectories or files created within this path immediately inherit the sysops group ID via SGID.
 
+1)sudo mkdir -p /opt/prodution
+2)chown root:sysops /opt/prodution
+3)chmod 2770 /opt/prodution
+
+
 Task 5: Precision Auditing Tasks
-Configure a recurring system task for the root user. The task must execute every Monday and Thursday at exactly 4:15 AM, appending the current system disk usage data (df -h) into a file located at /var/log/disk_audit.log.
+Configure a recurring system task for the root user. The task must execute every Monday and Thursday at exactly 4:15 AM, 
+appending the current system disk usage data (df -h) into a file located at /var/log/disk_audit.log.
 
-
-.
+1)sudo crontab -e
+2) 15 * * 1,4	/bin/df -h >> /var/log/disk_audit.log
+3) esc -- :wq //to save the changes in crontab
 
 🖥️ Tasks on serverb (Storage & Automation Engineering)
 SSH from workstation into serverb and elevate to root.
@@ -58,8 +65,24 @@ SSH from workstation into serverb and elevate to root.
 Task 6: The LVM Real-Estate Build
 The system has an unallocated secondary block storage device available (identify it using lsblk). Create a Volume Group named vg_store with a Physical Extent (PE) allocation size of 8MB. Inside this group, provision a Logical Volume named lv_media with a total size of 1.2GB. Format it as ext4 and map it persistently via UUID to mount at /mnt/media.
 
+1) lsblk then man pvcreate,lvcreate,vgcreate
+2) sudo pvcreate /dev/sdb
+3) sudo vgcreate -s 8Mb vg_store /dev/sdb
+4) sudo lvcreate -L 1200M -n lv_media vg_store
+5) sudo mkfs.ext4 /dev/mapper/vg_store-lv_media
+6) sudo blkid then nano into fstab
+7) added the UUID, with /mnt/media and remaining as defaults with ext4
+8) created the media dir in /mnt after checking if it exist or not. 
+
+--rebooting for confirmation---
+after reboot checked lsblk-- worked showing the lvm--- but I noted the lvm is showing under sdd but I intended to create this in sdb. 
+What wen twrong here?
+how to avoid this in future?
+
 Task 7: Emergency Storage Injection
 Your core services are hitting a wall. Dynamically extend the newly created lv_media volume to a total capacity of 2.0GB. Ensure that the underlying ext4 filesystem expands live alongside the block layer without unmounting the path.
+
+
 
 Task 8: Virtual Memory (Swap) Expansion
 Provision an additional 512MB Logical Volume named lv_swap inside vg_store. Initialize it cleanly as system swap space, ensure it mounts persistently across system reboots, and activate it immediately.
