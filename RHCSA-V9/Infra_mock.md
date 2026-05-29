@@ -82,13 +82,35 @@ how to avoid this in future?
 Task 7: Emergency Storage Injection
 Your core services are hitting a wall. Dynamically extend the newly created lv_media volume to a total capacity of 2.0GB. Ensure that the underlying ext4 filesystem expands live alongside the block layer without unmounting the path.
 
-
+1) sudo lvextend -L 2.0G -r /dev/mapper/vg_store-lv_media
+// What if I use lvresize instead, aslos does lv resize add new volume or does it change the existing volume entirely. If it does change 
+	existing volume, does it asks for deletion before proceeding?
 
 Task 8: Virtual Memory (Swap) Expansion
 Provision an additional 512MB Logical Volume named lv_swap inside vg_store. Initialize it cleanly as system swap space, ensure it mounts persistently across system reboots, and activate it immediately.
 
+1) sudo lvcreate -n lv_swap -L 512MB vg_store
+2) sudo mkswap /dev/mapper/vg_store-lv_swap
+3) sudo swapon /dev/vg_store/lv_swap
+4) nano /etc/fstab
+	UUID none swap default 0 0
+5) exit and save: Then reboot
+
+//This was done using google and knowing the steps, I did read the man page to understand the flags. 
+
+
 Task 9: Reactive Autofs Drives
 Configure the automounter system to dynamically mount a directory. When a user navigates to /shares/marketing, the system must automatically bind-mount the local directory /opt/marketing_data. Ensure the service is configured to automatically boot on system initialization.
+
+1) dnf install autofs -y
+2) edit etc/auto.master	\\Added /shares /etc/auto.shares in the last 
+3) Created a new file in /etc/auto.shares \\ Added marketing  -fstype=none,bind  :/opt/marketing_data
+4) Created /shares/marketing and marketing_data inside opt.
+5) sudo systemctl enable autofs && sudo systemctl restart autofs
+6) Tried to test, it didn't worked as expected. 
+
+Also, I did not understand the 3 steps why we did and what it would do. 
+
 
 🖥️ Tasks on serverc (Modern App Deployments)
 SSH from workstation into serverc and elevate to root.
