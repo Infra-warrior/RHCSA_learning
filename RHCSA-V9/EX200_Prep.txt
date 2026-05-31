@@ -50,3 +50,29 @@ Perform the following commands first:
 -- review the screen recording
 
 -- user add and group add
+
+
+--* Breaking root password*-----
+
+#using the redhat user-- and you will have to break the password of root
+-- Go to VM control and click on node 2, select reboot---- in the 2 option select rescue mode
+-- Press e --- in the linux line after quet type: rd.bbreak without enter press. "
+Press ctrl + x
+You will enter into the terminal where you can break the password. 
+Just press enter and type following 
+mount - u remount,rw /sysrwt
+--- do the revise --- for breaking root password
+
+
+# LVM creation 
+Create partition of the disk partition using fdisk 
+
+
+#Key Questions:
+LVM creation and resize
+nfs 
+Containers
+profile tuned
+root password
+ssh - configuration
+
