@@ -1,0 +1,99 @@
+This comprehensive mock exam covers your requested domains. The scenarios are structured around your multi-node lab architecture (workstation, servera, serverb, serverc), utilizing typical constraints and requirements found on the actual exam.
+
+🛑 RHCSA EX200 Comprehensive Practice Exam
+Exam Parameters & Constraints
+Time Management: Aim to complete all tasks within 3 hours.
+
+Reboot Persistence: Every configuration must survive a complete system reboot. If a service fails to start or a drive fails to mount after a reboot, it will score zero.
+
+Failsafe: Unless explicitly told otherwise, do not disable firewalls or set SELinux to permissive mode.
+
+💻 Part 1: The Practice Scenarios
+🧱 Section A: System Recovery & Base Configuration (servera)
+Task 1: Breaking and Resetting the Root Password
+Context: You have lost administrative access to servera.
+
+Requirement: Interrupt the boot loader process at the GRUB menu, bypass standard authentication, and reset the root user password to RedHatExam2026. Ensure SELinux context labeling does not lock you out of the system upon reboot.
+
+Task 2: Network Configuration using TCP/IP
+Context: Transition servera from dynamic allocation to a fixed corporate network space.
+
+Requirement: Configure the primary network interface with the following static IPv4 parameters:
+
+IP Address: 192.168.122.10/24
+
+Gateway: 192.168.122.1
+
+DNS Server: 192.168.122.1
+
+Connection Tracking: Ensure the interface activates automatically on boot for all users.
+
+Task 3: Custom Repository Configuration
+Context: The system needs access to localized software payloads.
+
+Requirement: Create a new repository configuration file named /etc/yum.repos.d/custom_apps.repo. Configure it to access software hosted at http://utility.lab.example.com/custom/BaseOS and http://utility.lab.example.com/custom/AppStream. GPG signature checking must be disabled for these local streams.
+
+Task 4: File Content Filtering & Redirection (grep)
+Context: Security needs an isolated record of unauthorized service access attempts.
+
+Requirement: Search the system authentication log /var/log/secure. Extract all lines containing the case-insensitive phrase failed password. Redirect these matching entries into a newly created file at /root/auth_failures.txt. Ensure no empty lines or system metadata wrappers are introduced.
+
+🔒 Section B: Security, Profiles, & Access Controls (serverb)
+Task 5: Secure Shell (SSH) Hardening
+Context: Clean up and secure remote system access parameters.
+
+Requirement: Configure the SSH daemon on serverb to enforce the following access control parameters:
+
+Explicitly forbid direct remote root authentication over SSH.
+
+Prevent any interactive plaintext password authentications from executing; access must rely on public key pairs only.
+
+Task 6: Custom User & Escalated Permissions
+Context: Deploy an operations engineer with precise elevated rights.
+
+Requirement: Create a user account named operator_alpha with a UID of 2500. Configure the system sudoers architecture to allow operator_alpha to execute administrative command binaries without being prompted to input a password.
+
+Task 7: SELinux Port Mapping
+Context: A legacy application requires a non-standard web socket wrapper.
+
+Requirement: Configure an application service to listen on TCP port 9292. Update the SELinux policy matrix so the network socket cleanly binds without throwing access violations. Do not toggle global enforcement states.
+
+Task 8: Performance Tuning with tuned
+Context: Optimize the host profile for dense virtualized compute operations.
+
+Requirement: Install the system tuning engine if missing. Analyze the environment profiles, then assign the active runtime dynamic profile strictly to virtual-host. Verify that this profile remains active across system restarts.
+
+💾 Section C: Storage Engineering & File Systems (serverc)
+Task 9: Advanced LVM Real-Estate & Swap Provisioning
+Context: Scale logical block volumes to handle erratic application footprints.
+
+Requirement: 1. Identify your secondary raw unpartitioned disk drive.
+2. Provision a Volume Group named vg_data with a physical extent (PE) mapping of 32MB.
+3. Slice a Logical Volume named lv_apps inside this space with a precise dimension of 60 extents. Format it as xfs and mount it persistently under /apps.
+4. Provision a secondary Logical Volume named lv_swap_ext inside vg_data scaled to 1GB. Initialize and register this block space as a live, persistent system Swap extension.
+
+Task 10: Live LVM Volume Extension
+Context: An application layer has breached its active ceiling space.
+
+Requirement: Scale the previously mounted volume /apps (lv_apps) to an absolute total capacity of 3.5GB. The underlying filesystem layout must expand continuously beside the hardware block layer dynamically without losing data or unmounting the mountpoint.
+
+Task 11: Persistent Network File System (NFS) Integration
+Context: Bind structured corporate storage shares to your local data paths.
+
+Requirement: Mount an enterprise NFS storage path exposed from your lab utility anchor at utility.lab.example.com:/shares/data. Map this remote mount point persistently using standard parameters to mount at the local path /mnt/remote_data.
+
+Task 12: Conditional Automation via Auto-Mounting (autofs)
+Context: System drives should dynamically spin up only when referenced to preserve operational resource allocations.
+
+Requirement: Implement autofs on your system. Configure it so that whenever any process or user navigates to /data/finance, the system dynamically hot-plugs and attaches the local physical directory /opt/finance_vault.
+
+📦 Section D: Archives & Container Deployments (workstation/serverc)
+Task 13: High-Ratio Archiving and Compression (tar)
+Context: Back up stale localized log configuration bundles.
+
+Requirement: Create a singular, compressed archive payload containing the exact contents of /etc/sysconfig/. The payload must utilize high-efficiency bzip2 compression protocols and be saved cleanly as a file named /root/sysconfig_backup.tar.bz2.
+
+Task 14: Non-Privileged Container Services
+Context: Package service elements inside secure sandbox zones without utilizing system root profiles.
+
+Requirement: Access serverc using your unprivileged user account (student). Download and run a container image instance using registry.access.redhat.com/ubi9/nginx-120. Name the local container container web_sandbox. Route the local system's external port 8085 into internal container target port 8080. Ensure this instance automatically restarts on system boot using user-space systemd execution paradigms.
