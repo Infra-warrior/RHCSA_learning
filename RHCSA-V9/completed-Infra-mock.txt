@@ -118,12 +118,35 @@ SSH from workstation into serverc and elevate to root.
 Task 10: Non-Standard Web Binding
 Install the web engine package (httpd or nginx). Modify its native configuration file to drop port 80 and instead listen on port 8181.
 
+1) sudo dnf install httpd \\ALready installed
+2) sudo nano etc/httpd/conf.d/httpd.conf	\\Edited the listening port to 8081
+3) sudo systemctl restart httpd \\ outcome restart failed with error referenced but unset enviroment variable evauates to an empty strong: OPTIONs
+
+What went wrong here? Explain
+
 Task 11: SELinux Security Bypass Prevention
 If you try to start the web engine now, SELinux will kill the process. Use the appropriate tools to update the SELinux policy database to allow the web service to cleanly bind to port 8181. Do not set SELinux to permissive mode.
+
+1) man semanage-port
+2) sudo semanage port -a -t http_port_t -p tcp 8081
+3) sudo semanage port -l | grep http_port_t
 
 Task 12: Network Perimeter Control
 Configure the host firewall to permanently accept incoming TCP traffic on port 8181. Ensure you do not disrupt default zones or active connections. Reload the subsystem and verify the rules are active.
 
+1) sudo firewall-cmd --add-port=8081/tcp --permanent
+2) sudo firewall-cmd --reload
+3) sudo firewall-cmd --list-ports --zone=$(firewall-cmd --get-active-zone | awk 'NR==1{print $1}')
+
 Task 13: Standard Container Deployment
 Switch to your student user account on serverc. Deploy a rootless container instance running an nginx:latest image. Map host port 8080 directly to container port 80. Ensure the container engine is configured to launch this container automatically as a systemd user service every time serverc boots up, without requiring an active user login session.
+
+1) podman run -d --name nginx-web -p 8080:80 nginx:latest
+\\Unable to pull the image as the access is denied for all the available repo including docker
+
+Failed this step, 
+
+Question! Wouldnot' be it right if I start from the scracth n terms of podman, also another question:
+
+What if I run all the command as sudo in the real exam, would that backfire or would it save me from erro and wasting time as runing the command non-sudo and then correcting it with sudo?
 
