@@ -1,0 +1,10 @@
+
+For Network COnfiguration changes:
+
+nmcli connection show 'name' //to list the properties of the connection
+
+nmtui //use the GUI based system.
+
+nmcli general hostname new-hostname	//To set a new hostname
+
+
