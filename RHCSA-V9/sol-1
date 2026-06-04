@@ -1,5 +1,5 @@
 
-For Network COnfiguration changes:
+For Network Configuration changes:
 
 nmcli connection show 'name' //to list the properties of the connection
 
@@ -8,3 +8,23 @@ nmtui //use the GUI based system.
 nmcli general hostname new-hostname	//To set a new hostname
 
 
+----------------------------------------------------
+// nmcli connection modify 
+
+---------------------------------------------------
+Adding repos
+
+sudo vi etc/yum.repos.d/name.repo
+
+Add the info in the following Syntax
+[name]
+name=
+url=
+gpgcheck=0
+enable=1 /if you are asked to enable it. 
+
+:wq	save and exit
+
+To verify
+yum repolist
+-------------------------------------------------
