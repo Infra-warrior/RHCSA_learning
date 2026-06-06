@@ -28,3 +28,250 @@ enable=1 /if you are asked to enable it.
 To verify
 yum repolist
 -------------------------------------------------
+
+7th COnfigure NTP, not understand the part of setting the address in /etc/chrony.conf
+
+--- Review - Revise- Practice---
+
+---------------------------------------------------
+
+8th Configure AUto.fs
+-- entirely each step
+
+-----Revise-- review- practice----
+-----------------------------------------------
+
+10th Locate all file owned by user "Username" and copy it under 'root/username-file'
+
+--- Understand --- practice
+
+----------------------------------------------
+
+11th Finding a string from a /destination path file name and put it into 'root/lines file'. 
+
+
+-----------------------------------------------
+
+Creating a service and a service timer.
+
+-------------------------------------------
+
+For adding a group to sudoers
+
+Syntax correction:
+
+visudo
+
+%groupname ALL=(ALL) NOPASSWD: ALL	\\Correct syntax
+
+---------------------------------------------
+8th Configure AUto.fs
+-- entirely each step
+
+-----Revise-- review- practice----
+-----------------------------------------------
+
+10th Locate all file owned by user "Username" and copy it under 'root/username-file'
+
+--- Understand --- practice
+
+----------------------------------------------
+
+11th Finding a string from a /destination path file name and put it into 'root/lines file'. 
+
+
+-----------------------------------------------
+
+Creating a service and a service timer.
+
+-------------------------------------------
+
+For adding a group to sudoers
+
+Syntax correction:
+
+visudo
+
+%groupname ALL=(ALL) NOPASSWD: ALL	\\Correct syntax
+
+---------------------------------------------
+8th Configure AUto.fs
+-- entirely each step
+
+-----Revise-- review- practice----
+-----------------------------------------------
+
+10th Locate all file owned by user "Username" and copy it under 'root/username-file'
+
+--- Understand --- practice
+
+----------------------------------------------
+
+11th Finding a string from a /destination path file name and put it into 'root/lines file'. 
+
+
+-----------------------------------------------
+
+Creating a service and a service timer.
+
+-------------------------------------------
+
+For adding a group to sudoers
+
+Syntax correction:
+
+visudo
+
+%groupname ALL=(ALL) NOPASSWD: ALL	\\Correct syntax
+
+---------------------------------------------
+8th Configure AUto.fs
+-- entirely each step
+
+-----Revise-- review- practice----
+-----------------------------------------------
+
+10th Locate all file owned by user "Username" and copy it under 'root/username-file'
+
+--- Understand --- practice
+
+----------------------------------------------
+
+11th Finding a string from a /destination path file name and put it into 'root/lines file'. 
+
+
+-----------------------------------------------
+
+Creating a service and a service timer.
+
+-------------------------------------------
+
+For adding a group to sudoers
+
+Syntax correction:
+
+visudo
+
+%groupname ALL=(ALL) NOPASSWD: ALL	\\Correct syntax
+
+---------------------------------------------
+8th Configure AUto.fs
+-- entirely each step
+
+-----Revise-- review- practice----
+-----------------------------------------------
+
+10th Locate all file owned by user "Username" and copy it under 'root/username-file'
+
+--- Understand --- practice
+
+----------------------------------------------
+
+11th Finding a string from a /destination path file name and put it into 'root/lines file'. 
+
+
+-----------------------------------------------
+
+Creating a service and a service timer.
+
+-------------------------------------------
+
+For adding a group to sudoers
+
+Syntax correction:
+
+visudo
+
+%groupname ALL=(ALL) NOPASSWD: ALL	\\Correct syntax
+
+---------------------------------------------
+8th Configure AUto.fs
+-- entirely each step
+
+-----Revise-- review- practice----
+-----------------------------------------------
+
+10th Locate all file owned by user "Username" and copy it under 'root/username-file'
+
+--- Understand --- practice
+
+----------------------------------------------
+
+11th Finding a string from a /destination path file name and put it into 'root/lines file'. 
+
+
+-----------------------------------------------
+
+Creating a service and a service timer.
+
+-------------------------------------------
+
+For adding a group to sudoers
+
+Syntax correction:
+
+visudo
+
+%groupname ALL=(ALL) NOPASSWD: ALL	\\Correct syntax
+
+---------------------------------------------
+8th Configure AUto.fs
+-- entirely each step
+
+-----Revise-- review- practice----
+-----------------------------------------------
+
+10th Locate all file owned by user "Username" and copy it under 'root/username-file'
+
+--- Understand --- practice
+
+----------------------------------------------
+
+11th Finding a string from a /destination path file name and put it into 'root/lines file'. 
+
+
+-----------------------------------------------
+
+Creating a service and a service timer.
+
+-------------------------------------------
+
+For adding a group to sudoers
+
+Syntax correction:
+
+visudo
+
+%groupname ALL=(ALL) NOPASSWD: ALL	\\Correct syntax
+
+---------------------------------------------
+8th Configure AUto.fs
+-- entirely each step
+
+-----Revise-- review- practice----
+-----------------------------------------------
+
+10th Locate all file owned by user "Username" and copy it under 'root/username-file'
+
+--- Understand --- practice
+
+----------------------------------------------
+
+11th Finding a string from a /destination path file name and put it into 'root/lines file'. 
+
+
+-----------------------------------------------
+
+Creating a service and a service timer.
+
+-------------------------------------------
+
+For adding a group to sudoers
+
+Syntax correction:
+
+visudo
+
+%groupname ALL=(ALL) NOPASSWD: ALL	\\Correct syntax
+
+---------------------------------------------
