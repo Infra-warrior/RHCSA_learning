@@ -10,4 +10,4 @@ This repository contains the Bash scripts, KVM/libvirt lab configurations, and c
 I successfully passed the exam in June 2026. Feel free to explore the labs I used to master RHEL 9 administration!
 
 ---
-*(Keep your original repository notes and code below this line)*
+
